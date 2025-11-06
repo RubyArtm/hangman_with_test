@@ -1,0 +1,15 @@
+apple
+banana
+computer
+elephant
+guitar
+keyboard
+mountain
+orange
+pencil
+rainbow
+science
+treasure
+umbrella
+volcano
+window
