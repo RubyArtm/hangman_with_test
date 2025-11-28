@@ -1,7 +1,9 @@
 ## 🎮 Hangman Game
-Console Hangman game in Ruby with test coverage
+Console Hangman game in Ruby with test coverage and save/load functionality
 ## 📝 Description
-A classic Hangman game implemented in Ruby. The player guesses a word letter by letter, with a limited number of attempts (7 errors). Words are loaded from a text file or passed via command-line arguments.
+A classic Hangman game implemented in Ruby. The player guesses a word letter by letter, with a limited number of attempts (7 errors).  
+Words are loaded from a text file or passed via command-line arguments.  
+You can save the current game to a JSON file and later restore it from the list of saved games.
 ## 🚀 Getting Started
 ```bash
 # Run with a random word from file
@@ -18,6 +20,10 @@ ruby main.rb word
 - Victory: all letters are guessed
 - Defeat: error limit is reached
 
+## 💾 Save & Load
+- All saves are stored in a single file: `data/saves.json`
+- Format: JSON
+
 ## 🏗️ Project Structure
 ```
 hangman_with_test/
@@ -25,11 +31,13 @@ hangman_with_test/
 ├── lib/                  # Game modules
 │   ├── game.rb           # Game logic
 │   ├── result_printer.rb # Results output
-│   └── word_reader.rb    # Word reading
+│   ├── word_reader.rb    # Word reading
+│   └── save.rb           # Save/load game state (JSON)
 ├── spec/                 # RSpec tests
 │   └── game_spec.rb      # Game logic tests
 ├── data/                 # Data files
-│   └── words.txt         # Word list
+│   ├── words.txt         # Word list
+│   └── saves.json        # Saved games (JSON)
 └── image/                # Visual assets (ASCII art)
 ```
 ## 🛠️ Technologies & Skills
@@ -63,6 +71,12 @@ hangman_with_test/
 - Game status display
 - Progress visualization
 - Results output
+
+#### 4. **Save** `lib/save.rb`
+- Working with the `data/saves.json` file
+- Reading all saves
+- Saving the current game state with a new ID
+- Loading a game by its ID and restoring its state
 
 ### Testing
 - **RSpec** - testing framework

@@ -25,7 +25,7 @@ class ResultPrinter
     end
   end
 
-  def print_viselitsa(errors)
+  def print_hangman(errors)
     puts @status_image[errors]
   end
 
@@ -37,7 +37,7 @@ class ResultPrinter
 
     puts "\nErrors: #{game.bad_letters.join(', ')}"
 
-    print_viselitsa(game.errors)
+    print_hangman(game.errors)
 
     if game.lost?
       puts "\nYou lost :(\n"

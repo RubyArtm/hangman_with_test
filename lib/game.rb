@@ -9,22 +9,22 @@ class Game
 
   MAX_ERRORS = 7
 
-  def initialize(slovo)
-    @letters = get_letters(slovo)
+  def initialize(word)
+    @letters = get_letters(word)
     @errors = 0
     @good_letters = []
     @bad_letters = []
     @status = :in_progress
   end
 
-  def get_letters(slovo)
-    if slovo.nil? || slovo == ''
+  def get_letters(word)
+    if word.nil? || word == ''
       abort 'The word is not given. The game is interrupted.'
     else
-      slovo = slovo.encode('UTF-8')
+      word = word.encode('UTF-8')
     end
 
-    slovo.upcase.split('')
+    word.upcase.split('')
   end
 
   def max_errors
@@ -81,10 +81,12 @@ class Game
   end
 
   def ask_next_letter
-    puts "\nEnter the next letter"
+    puts "\nEnter the next letter (or '!' to save and exit)"
     letter = ''
 
     letter = $stdin.gets.encode('UTF-8').chomp while letter == ''
+
+    return :save_and_exit if letter == '!'
 
     next_step(letter)
   end
